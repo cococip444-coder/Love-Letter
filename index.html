@@ -51,6 +51,7 @@ Terima kasih sudah hadir di hidupku yaa gantengkuu...
 Aku cinta kamu hari ini, besok, lusa, minggu depan, bulan depan, dan selamanyaa 💐💗`;
 function sw(a,b){document.getElementById(a).classList.add('hide');document.getElementById(b).classList.remove('hide')}
 function go2(){document.getElementById("bgm").play();sw('s1','s2')}
+function go3(){sw('s2','s3');}
 function openL(){if(pin.value!=='2118'){alert('PIN salah 🤭');return;}sw('s3','s4');letter.textContent='';let i=0;(function t(){if(i<txt.length){letter.textContent+=txt[i++];letter.scrollTop=letter.scrollHeight;setTimeout(t,24)}else end.style.display='block';})();}
 function boom(){for(let i=0;i<250;i++){setTimeout(()=>{let h=document.createElement('div');h.className='petal';h.textContent='💖';h.style.left=Math.random()*100+'vw';h.style.animationDuration='4s';petals.appendChild(h);setTimeout(()=>h.remove(),4000)},i*8)}alert('I Love You Forever ❤️');}
 </script></body></html>
