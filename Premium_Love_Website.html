@@ -1,0 +1,46 @@
+<!doctype html>
+<html lang="id"><head><meta charset="utf-8"><meta name="viewport" content="width=device-width,initial-scale=1">
+<title>For My Love</title>
+<style>
+*{box-sizing:border-box}body{margin:0;font-family:system-ui;background:radial-gradient(circle at top,#25305a,#090b17);overflow:hidden;color:#000}
+#stars,#petals{position:fixed;inset:0;pointer-events:none}
+.star{position:absolute;width:2px;height:2px;background:#fff;border-radius:50%;animation:twinkle 2s infinite alternate}
+@keyframes twinkle{to{opacity:.2;transform:scale(1.8)}}
+.petal{position:absolute;color:#ff8db5;animation:fall linear forwards}
+@keyframes fall{to{transform:translateY(110vh) rotate(360deg);opacity:0}}
+.page{position:absolute;inset:0;display:flex;align-items:center;justify-content:center;padding:20px;transition:.8s}
+.hide{opacity:0;pointer-events:none}
+.card{max-width:760px;width:100%;background:rgba(255,255,255,.08);backdrop-filter:blur(12px);padding:28px;border-radius:24px;text-align:center}
+.envelope{width:220px;height:140px;background:#f8d7da;margin:20px auto;position:relative;border-radius:8px;cursor:pointer}
+.envelope:before{content:'';position:absolute;border:110px solid transparent;border-top:70px solid #f2bcc7;left:0;top:0}
+button,input{padding:12px 18px;border:none;border-radius:30px}
+button{background:#ff5c98;color:#fff}
+#letter{white-space:pre-line;text-align:left;line-height:1.8}
+</style></head><body>
+<div id=stars></div><div id=petals></div>
+<div id=s1 class=page><div class=card><h1>✨ A Letter Across The Distance ✨</h1><p>Untuk seseorang yang selalu berhasil membuatku jatuh cinta setiap hari...</p><button onclick="go2()">Mulai 💗</button></div></div>
+<div id=s2 class="page hide"><div class=card><h2>💌 Sentuh Amplopnya</h2><div class=envelope onclick="go3()"></div></div></div>
+<div id=s3 class="page hide"><div class=card><h2>Only My Favorite Person Can Open This ❤️</h2><input id=pin placeholder='PIN'><button onclick='openL()'>Buka</button></div></div>
+<div id=s4 class="page hide"><div class=card><h2>Untuk Mas 💗</h2><div id=letter></div><div id=end style='display:none'><hr><h2>No matter how far we are,<br>You'll always be my home. ❤️</h2><button onclick='boom()'>I Love You Forever</button><p><small>Untuk musik: tambahkan file <b>last-night-on-earth.mp3</b> di folder yang sama.</small></p></div></div></div>
+<script>
+for(let i=0;i<160;i++){let s=document.createElement('div');s.className='star';s.style.left=Math.random()*100+'vw';s.style.top=Math.random()*100+'vh';s.style.animationDelay=Math.random()*2+'s';stars.appendChild(s);}
+setInterval(()=>{let p=document.createElement('div');p.className='petal';p.textContent=Math.random()>.5?'🌸':'❤';p.style.left=Math.random()*100+'vw';p.style.animationDuration=(5+Math.random()*5)+'s';petals.appendChild(p);setTimeout(()=>p.remove(),10000)},180);
+const txt=`Aku Cinta Kamu, Mas.💗
+
+Makasi udah baca, pasti kamu sayang aku. 😝
+Makasi udah ganteng.
+Makasi udah bikin naksir. 😢💘
+Makasi karena selalu keren dan hebat.
+Makasi karena ga pernah nyerah sama aku.
+
+Walaupun kita sedang LDR, aku percaya setiap rindu yang kita simpan akan berubah menjadi pelukan yang paling hangat saat kita bertemu nanti.
+
+I Love You So Fucking Much ❤️❤️❤️
+
+Terima kasih sudah hadir di hidupku yaa gantengkuu...
+Aku cinta kamuu. 💐💗`;
+function sw(a,b){document.getElementById(a).classList.add('hide');document.getElementById(b).classList.remove('hide')}
+function go2(){sw('s1','s2')} function go3(){sw('s2','s3')}
+function openL(){if(pin.value!=='2118'){alert('PIN salah 🤭');return;}sw('s3','s4');let i=0;(function t(){if(i<txt.length){letter.textContent+=txt[i++];setTimeout(t,24)}else end.style.display='block';})();}
+function boom(){for(let i=0;i<250;i++){setTimeout(()=>{let h=document.createElement('div');h.className='petal';h.textContent='💖';h.style.left=Math.random()*100+'vw';h.style.animationDuration='4s';petals.appendChild(h);setTimeout(()=>h.remove(),4000)},i*8)}alert('I Love You Forever ❤️');}
+</script></body></html>
