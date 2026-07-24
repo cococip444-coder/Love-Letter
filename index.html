@@ -23,9 +23,9 @@ button{background:#ff5c98;color:#fff}
 </style></head><body><audio id="bgm" loop><source src="last-night-on-earth.mp3" type="audio/mpeg"></audio>
 <div id=stars></div><div id=petals></div>
 <div id=s1 class="page"><div class=card><h1>✨ A Love Letter Across The Distance ✨</h1><p>For The Most Handsome Man I Have Ever Loved</p><button onclick="go2()">Mulai 💗</button></div></div>
-<div id=s2 class="page hide"><div class=card><h2>💌 Tap Here, Baby</h2><div class="envelope" onclick="go3()"></div>
-<div id=s3 class="page hide"><div class=card><h2>Only My Favorite Person Can Open This ❤️</h2><input id=pin placeholder='PIN'><button onclick='openL()'>Buka</button></div></div>
-<div id=s4 class="page hide"><div class=card><h2>Untuk Mas 💗</h2><div id=letter></div><div id=end style='display:none'><hr><h2>No matter how far we are,<br>You'll always be my home. ❤️</h2><button onclick='boom()'>I Love You Forever</button><p><small>Untuk musik: tambahkan file <b>last-night-on-earth.mp3</b> di folder yang sama.</small></p></div></div></div>
+<div id="s2" class="page hide"><div class="card"><h2>💌 Tap Here, Baby</h2><div class="envelope" onclick="go3()"></div></div></div>
+<div id="s3" class="page hide"><div class="card"><h2>Only My Favorite Person Can Open This ❤️</h2><input id="pin" placeholder="PIN"><button onclick="openL()">Buka</button></div></div>
+<div id=s4 class="page hide"><div class=card><h2>Untuk Mas 💗</h2><div id=letter></div><div id=end style='display:none'><hr><h2>No matter how far we are,<br>You'll always be my home ❤️</h2><button onclick='boom()'>I Love You Forever, Mas</button><p><small>Untuk musik: tambahkan file <b>last-night-on-earth.mp3</b> di folder yang sama.</small></p></div></div></div>
 <script>
 for(let i=0;i<160;i++){let s=document.createElement('div');s.className='star';s.style.left=Math.random()*100+'vw';s.style.top=Math.random()*100+'vh';s.style.animationDelay=Math.random()*2+'s';stars.appendChild(s);}
 setInterval(()=>{let p=document.createElement('div');p.className='petal';p.textContent=Math.random()>.5?'🌸':'💌';p.style.left=Math.random()*100+'vw';p.style.animationDuration=(5+Math.random()*5)+'s';petals.appendChild(p);setTimeout(()=>p.remove(),10000)},180);
@@ -50,7 +50,7 @@ I Love You So Fucking Much ❤️❤️❤️
 Terima kasih sudah hadir di hidupku yaa gantengkuu...
 Aku cinta kamu hari ini, besok, lusa, minggu depan, bulan depan, dan selamanyaa 💐💗`;
 function sw(a,b){document.getElementById(a).style.display="none";document.getElementById(b).style.display="flex";}
-function go2({letmusic=document.getElementById("bgm");music.play().catch(()=>{});sw('s1','s2');}
+function go2(){document.getElementById("bgm").play();sw('s1','s2')}
 function go3(){sw('s2','s3');}
 function openL(){if(pin.value!=='2118'){alert('PIN salah 🤭');return;}sw('s3','s4');letter.textContent='';let i=0;(function t(){if(i<txt.length){letter.textContent+=txt[i++];letter.scrollTop=letter.scrollHeight;setTimeout(t,24)}else end.style.display='block';})();}
 function boom(){for(let i=0;i<250;i++){setTimeout(()=>{let h=document.createElement('div');h.className='petal';h.textContent='💖';h.style.left=Math.random()*100+'vw';h.style.animationDuration='4s';petals.appendChild(h);setTimeout(()=>h.remove(),4000)},i*8)}alert('I Love You Forever ❤️');}
